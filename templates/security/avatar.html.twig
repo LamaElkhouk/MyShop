@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Shop{% endblock %}
+
+{% block body %}
+
+<body style="background-color: #FCF8F9;">
+    <main style="margin-left:5%;margin-right: 5%;" >
+        <h2  style="text-align: center">Choisir un avatar</h2>
+        <section style="margin-top: 10%;color: dimgray; margin-left: 15%">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" style="margin-top: 4%">confirmer</button>
+        {{ form_end(form) }}
+        </section>
+    </main>
+</body>
+{% endblock %}

@@ -1,0 +1,131 @@
+-- MySQL dump 10.13  Distrib 5.7.27, for Linux (x86_64)
+--
+-- Host: 127.0.0.1    Database: symfony
+-- ------------------------------------------------------
+-- Server version	5.7.27-0ubuntu0.18.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `article`
+--
+
+DROP TABLE IF EXISTS `article`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `article` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `prix` double NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `genre_id` int(11) NOT NULL,
+  `categorie_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_23A0E664296D31F` (`genre_id`),
+  KEY `IDX_23A0E66BCF5E72D` (`categorie_id`),
+  CONSTRAINT `FK_23A0E664296D31F` FOREIGN KEY (`genre_id`) REFERENCES `genre` (`id`),
+  CONSTRAINT `FK_23A0E66BCF5E72D` FOREIGN KEY (`categorie_id`) REFERENCES `categorie` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=145 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `article`
+--
+
+LOCK TABLES `article` WRITE;
+/*!40000 ALTER TABLE `article` DISABLE KEYS */;
+INSERT INTO `article` VALUES (1,'baskets avec semelles',39,'baskets avec semelles.jpg',4,3),(2,'basket adidas',40,'basket adidas.jpg',3,3),(3,'anneau feuille de lierre',15,'anneau feuille de lierre.jpg',2,8),(4,'baskets noire',17,'baskets noire.jpg',1,3),(5,'basket bordeaux',19,'basket bordeaux.jpg',3,3),(6,'baskets montantes',20,'baskets montantes.jpg',3,3),(7,'jupe en velours',23,'jupe en velours.jpg',2,6),(8,'sneackers',16,'sneackers.jpg',3,3),(9,'bonnet',10,'bonnet.jpg',3,5),(10,'ceinture en cuir',13,'ceinture en cuir.jpg',3,5),(11,'chapeau en paille',12,'chapeau en paille.jpg',3,5),(12,'ceinture à carreaux',11,'ceinture à carreaux.jpg',3,5),(13,'casquette',15,'casquette.jpg',3,5),(14,'boxers lot 5 paires',22,'boxers lot 5 paires.jpg',3,9),(15,'chaussettes lot 3 paires',20,'chaussettes lot 3 paires.jpg',3,9),(16,'chaussettes mickey',23,'chaussettes mickey.jpg',3,9),(17,'chaussettes puma',21,'chaussettes puma.jpg',3,9),(18,'boxers mickey',19,'boxers mickey.jpg',3,9),(19,'doudoune noire',40,'doudoune noire.jpg',3,4),(20,'manteau d\'hiver',39,'manteau d\'hiver.jpg',3,4),(21,'manteaux blouson',35,'manteaux blouson.jpg',3,4),(22,'parka à capuche',36,'parka à capuche.jpg',3,4),(23,'veste blouson',31,'veste blouson.jpg',3,4),(24,'pantalon de golf nike',11,'pantalon de golf nike.jpg',3,2),(25,'pantalon droit',15,'pantalon droit.jpg',3,2),(26,'pantalon en jean',14,'pantalon en jean.jpg',3,2),(27,'pantalon imprimé camouflage',20,'pantalon imprimé camouflage.jpg',3,2),(28,'pantalon sport',21,'pantalon sport.jpg',3,2),(29,'sweat',19,'sweat.jpg',3,1),(30,'sweat à capuche',20,'sweat à capuche.jpg',3,1),(31,'sweat-shirt',31,'sweat-shirt.jpg',3,1),(32,'t-shirt boss',24,'t-shirt boss.jpg',3,1),(33,'t-shirt tour eiffel',15,'t-shirt tour eiffel.jpg',3,1),(34,'pantalon jogging',15,'pantalon jogging.jpg',4,2),(35,'pantalon en velour',17,'pantalon en velour.jpg',4,2),(36,'pantalon nike',20,'pantalon nike.jpg',4,2),(37,'pantalon slim',22,'pantalon slim.jpg',4,2),(38,'legging imprimé',10,'legging imprimé.jpg',4,2),(39,'sweat t-shirt',12,'sweat t-shirt.jpg',4,1),(40,'t-shirt bavarde',15,'t-shirt bavarde.jpg',4,1),(41,'pull brodé',22,'pull brodé.jpg',4,1),(42,'t-shirt princesse',12,'t-shirt princesse.jpg',4,1),(43,'pull en laine',26,'pull en laine.jpg',4,1),(44,'baskets basses',30,'baskets basses.jpg',4,3),(45,'bottes',41,'bottes.jpg',4,3),(46,'manteau en laine',50,'manteau en laine.jpg',4,4),(47,'manteau à capuche',41,'manteau à capuche.jpg',4,4),(48,'manteau à carreaux',39,'manteau à carreaux.jpg',4,4),(49,'manteau à fourrure',51,'manteau à fourrure.jpg',4,4),(50,'lunettes de soleil',10,'lunettes de soleil.jpg',4,5),(51,'bonnet',19,'bonnet.jpg',4,5),(52,'ceinture tressée',20,'ceinture tressée.jpg',4,5),(53,'chapeau fleure',21,'chapeau fleure.jpg',4,5),(54,'chapeau de paille',14,'chapeau de paille.jpg',4,5),(55,'jupe en jean',18,'jupe en jean.jpg',4,6),(56,'jupe imprimé bleu',18,'jupe imprimé bleu.jpg',4,6),(57,'jupe longue plissée',20,'jupe longue plissée.jpg',4,6),(58,'jupe plissée vintage',23,'jupe plissée vintage.jpg',4,6),(59,'jupe à carreaux',22,'jupe à carreaux.jpg',4,6),(60,'robe avec imprimé floral',30,'robe avec imprimé floral.jpg',4,7),(61,'robe bi-matiere',31,'robe bi-matiere.jpg',4,7),(62,'robe en coton',32,'robe en coton.jpg',4,7),(63,'robe imprimé vert foncé',39,'robe imprimé vert foncé.jpg',4,7),(64,'robe en coton',20,'robe en coton.jpg',4,7),(65,'shorty lot',11,'shorty lot.jpg',4,9),(66,'shorty à ceinture',12,'shorty à ceinture.jpg',4,9),(67,'soutien gorge',17,'soutien gorge.jpg',4,9),(68,'chaussettes à rayure',23,'chaussettes à rayure.jpg',4,9),(69,'chaussettes lot 2 paires',19,'chaussette lot 2 paires.jpg',4,9),(70,'chaussure djrock',41,'chaussure djrock.jpg',4,3),(71,'chaussures nike',43,'chaussures nike.jpg',4,3),(72,'pantalon confort classic',17,'pantalon confort classic.jpg',1,2),(73,'pantalon de jogging',20,'pantalon de jogging.jpg',1,2),(74,'pantalon nike',22,'pantalon nike.jpg',1,2),(75,'pantalon à carreaux',30,'pantalon à carreaux.jpg',1,2),(76,'jean skinny',18,'jean skinny.jpg',1,2),(77,'pull en laine',50,'pull en laine.jpg',1,1),(78,'t-shirt moulant',18,'t-shirt moulant.jpg',1,1),(79,'t-shirt à logo',19,'t-shirt à logo.jpg',1,1),(80,'sweat à capuche',16,'sweat à capuche.jpg',1,1),(81,'sweatshirt',20,'sweatshirt.jpg',1,1),(82,'chaussure adidas',30,'chaussure adidas.jpg',1,3),(83,'chaussure en cuir',41,'chaussure en cuir.jpg',1,3),(84,'chaussures montantes',44,'chaussures montantes.jpg',1,3),(85,'sneackers',35,'sneackers.jpg',1,3),(87,'manteau en fausse fourrure',55,'manteau en fausse fourrure.jpg',1,4),(88,'manteau hiver',56,'manteau hiver.jpg',1,4),(89,'manteau à carreaux',38,'manteau à carreaux.jpg',1,4),(90,'veste en laine',36,'veste en laine.jpg',1,4),(91,'veste hiver',47,'veste hiver.jpg',1,4),(92,'montre marron',60,'montre marron.jpg',1,5),(93,'montre vintage',65,'montre vintage.jpg',1,5),(94,'chapeau classic',22,'chapeau classic.jpg',1,5),(95,'beret',23,'beret.jpg',1,5),(96,'écharpe à carreaux',12,'ècharpe à carreaux.jpg',1,5),(97,'boxers lot 4 paires',40,'boxers lot 4 paires.jpg',1,9),(98,'boxers lot 3 paires',33,'boxers lot 3 paires.jpg',1,9),(99,'short',20,'short.jpg',1,9),(100,'chaussettes nike',20,'chaussettes nike.jpg',1,9),(101,'chaussettes personnalisées',22,'chaussettes personnalisées.jpg',1,9),(102,'pull court',16,'pull court.jpg',2,1),(103,'pull en maille à dentelle',19,'pull en maille à dentelle.jpg',2,1),(104,'T-shirt manches imprimés',11,'T-shirt manches imprimés.jpg',2,1),(105,'top moulant à manches transparentes',10,'top moulant à manches transparentes.jpg',2,1),(106,'sweat t-shirt décontracté',35,'sweat t-shirt décontracté.jpg',2,1),(107,'pantalon kaki',33,'pantalon kaki.jpg',2,2),(108,'pantalon moulant',30,'pantalon moulant.jpg',2,2),(109,'pantalon taille haute avec boutons',22,'pantalon taille haute avec boutons.jpg',2,2),(110,'pantalon à imprimé camouflage.jpg',20,'pantalon à imprimé camouflage.jpg',2,2),(111,'pantalon avec poches et motifs',25,'pantalon avec poches et motifs.jpg',2,2),(112,'escarpins en suédine',25,'escarpins en suédine.jpg',2,3),(113,'escarpins noués a talons',23,'escarpins noués a talons.jpg',2,3),(114,'bottine à talons',41,'bottine à talons.jpg',2,3),(115,'bottines jadon',40,'bottines jadon.jpg',2,3),(116,'bottines mi-mollet pointu',53,'bottines mi-mollet à bout pointu.jpg',2,3),(117,'manteau droit col amovible',60,'manteau droit col amovible.jpg',2,4),(118,'manteau en laine',54,'manteau en laine.jpg',2,4),(119,'manteau en teddy fourrure',45,'manteau en teddy fourrure.jpg',2,4),(120,'manteau poche revers',45,'manteau poche revers.jpg',2,4),(121,'manteau unicolore',40,'manteau unicolore.jpg',2,4),(122,'bonnet blanc',23,'bonnet blanc.jpg',2,5),(124,'ceinture avec double boucle et imprimé',20,'ceinture avec double boucle et imprimé.jpg',2,5),(126,'jupe patineuse avec zip',14,'jupe patineuse avec zip.jpg',2,6),(127,'jupe taille haute à carreaux',10,'jupe taille haute à carreaux.jpg',2,6),(128,'jupe à volants',13,'jupe à volants.jpg',2,6),(129,'jupe portefeuille avec bouton',12,'jupe portefeuille avec bouton.jpg',2,6),(130,'robe patineuse',39,'robe patineuse.jpg',2,7),(131,'robe pull à paillettes',36,'robe pull à paillettes.jpg',2,7),(132,'robe évasé avec dentelle',35,'robe évasé avc dentelle.jpg',2,7),(133,'robe dos-nu ceinturée avec imprimé floral',22,'robe dos-nu ceinturée avec imprimé floral.jpg',2,7),(134,'robe en velour à manches transparentes',45,'robe en velour à manches transparentes.jpg',2,7),(137,'boucle d\'oreille avec chaine',45,'boucle d\'oreille avec chaine.jpg',2,8),(138,'boucle d\'oreille set d\'anneau',40,'boucle d\'oreille set d\'anneau.jpg',2,8),(139,'bralette en satin',26,'bralette en satin.jpg',2,9),(140,'ensemble en satin',53,'ensemble en satin.jpg',2,9),(141,'ensemble top et short en velours',56,'ensemble top et short en velours.jpg',2,9),(142,'lot de 4 culottes.jpg',41,'lot de 4 culottes.jpg',2,9),(143,'lot de 7 hipsters marion',50,'lot de 7 hipsters marion.jpg',2,9),(144,'sac similicuir 3 pièces',55,'sac similicuir 3 pièces.jpg',2,5);
+/*!40000 ALTER TABLE `article` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `categorie`
+--
+
+DROP TABLE IF EXISTS `categorie`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `categorie` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `categorie`
+--
+
+LOCK TABLES `categorie` WRITE;
+/*!40000 ALTER TABLE `categorie` DISABLE KEYS */;
+INSERT INTO `categorie` VALUES (1,'top'),(2,'pantalon'),(3,'chaussure'),(4,'veste et manteau'),(5,'accessoire'),(6,'jupe'),(7,'robe'),(8,'bijoux'),(9,'sous-vetement');
+/*!40000 ALTER TABLE `categorie` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `genre`
+--
+
+DROP TABLE IF EXISTS `genre`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `genre` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `genre`
+--
+
+LOCK TABLES `genre` WRITE;
+/*!40000 ALTER TABLE `genre` DISABLE KEYS */;
+INSERT INTO `genre` VALUES (1,'homme'),(2,'femme'),(3,'garçon'),(4,'fille');
+/*!40000 ALTER TABLE `genre` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `migration_versions`
+--
+
+DROP TABLE IF EXISTS `migration_versions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `migration_versions` (
+  `version` varchar(14) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `executed_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)',
+  PRIMARY KEY (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `migration_versions`
+--
+
+LOCK TABLES `migration_versions` WRITE;
+/*!40000 ALTER TABLE `migration_versions` DISABLE KEYS */;
+INSERT INTO `migration_versions` VALUES ('20200302180244','2020-03-05 11:22:25'),('20200302182543','2020-03-05 11:22:25');
+/*!40000 ALTER TABLE `migration_versions` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-03-08 23:06:00

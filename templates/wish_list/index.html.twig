@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Shop{% endblock %}
+
+{% block body %}
+<body style="background-color: #FCF8F9;">
+    <main style="margin-left:5%;margin-right: 5%;" >
+        <h2  style="text-align: center">Ma liste d'envies</h2>
+
+        {% if listeArticles|length >0 %}
+
+            <div class="contenair" style="margin:3%;margin-top: 5%;display: flex;flex-wrap: wrap;justify-content: space-between;">
+                {% for e in listeArticles %}
+                    <div class="article" style="height: 300px; width: 300px ; margin-bottom: 2%; margin-top: 14%">
+
+                        <h3 >{{ e.article.nom }}</h3>
+                        <img class="imgArticle"style="height: 250px;width: 100%"  src="{{ asset('images/enfants/fille/')}}{{ e.article.image}}" alt=" ">
+                        <img class="imgArticle"style="height: 250px;width: 100%"  src="{{ asset('images/enfants/garçon/')}}{{ e.article.image}}" alt=" ">
+                        <img class="imgArticle"style="height: 250px;width: 100%"  src="{{ asset('images/homme/')}}{{ e.article.image }}" alt=" ">
+                        <img class="imgArticle"style="height: 250px;width: 100%"  src="{{ asset('images/femme/')}}{{ e.article.image }}" alt=" ">
+
+                        <p  class="texte"> <a style="color:gray" href="{{ path('panier2',{'id':e.article.id}) }}"><span class="icon-cart"></span></a></p>
+                        <section style="display: flex;flex-direction: row;justify-content: space-between;">
+                            <p>{{ e.article.prix}}€</p>
+                            <td><a style="color: #d95757;font-size: 23px;margin-top: 3%" href="{{ path('listRemove',{'id':e.article.id}) }}"><span class="icon-bin" style="color:#d95757"></span></a></td>
+
+                        </section>
+
+                    </div>
+                {% endfor %}
+            </div>
+
+
+        {% else %}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <figure style="margin-top: 5%">
+                    <img style="height: 180px; margin-left: 40%" src="{{ asset('images/wishlist.png') }}" alt="Elephant at sunset">
+                    <figcaption style="">
+                        <p style="color:gray;margin-left:35%;margin-top:3%;font-size: 20px">
+                            désoler la wishlist est vide ...
+                        </p>
+                    </figcaption>
+                </figure>
+            {% else %}
+
+                <figure style="margin-top: 5%">
+                    <img style="height: 180px; margin-left: 40%" src="{{ asset('images/wishlist.png') }}" alt="Elephant at sunset">
+                    <figcaption style="">
+                        <p style="color:gray;margin-left:35%;margin-top:3%;font-size: 20px">
+                            désoler la wishlist est vide ...
+                        </p>
+                        <p class="messageVide2" style="margin-left: 30%;margin-top: 3%; font-size: 15px;color:dimgrey">
+                            Veuillez <a href="{{ path('app_login') }}" style="color:#d95757">vous connecter</a> pour consulter votre  wishlist
+                        </p>
+                    </figcaption>
+                </figure>
+
+
+            {% endif %}
+        {% endif %}
+
+
+
+
+    </main>
+</body>
+{% endblock %}

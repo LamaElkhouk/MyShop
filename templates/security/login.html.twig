@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<body style="background-color: #FCF8F9;">
+    <h2 style="text-align: center">Authentification </h2>
+<form  style="margin-top: 14%;margin-left: 12%" method="post">
+    {% if error %}
+        <div class="alert alert-danger" style="color:red;margin-bottom: 4%;font-size: 15px">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+
+
+    <label for="inputUsername" style="color:#3f3e3e">Username</label>
+    <input type="text" placeholder="Veuillez rentrer un pseudo " value="{{ last_username }}" name="username" id="inputUsername" class="form-control" required autofocus>
+    <label for="inputPassword" style="color:#3f3e3e" >Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+
+    <button class="btn btn-lg btn-primary" type="submit">
+        connexion
+    </button>
+</form>
+    <p style="margin-left: 12%;margin-top: 3%; font-size: 15px;color:dimgrey">
+        pas encore inscrit ? cliquez <a href="{{ path('inscription') }}" style="color:#d95757">ici</a></p>
+</body>
+{% endblock %}

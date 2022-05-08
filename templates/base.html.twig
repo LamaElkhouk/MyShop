@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}My Shop{% endblock %} </title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{asset('css/Style.css')}}">
+            <link rel="stylesheet" href="{{asset('css/mobile.css')}}">
+            <link rel="stylesheet" href="{{asset('build/app.css')}}">
+
+            <link href="{{asset('icomoon/style.css')}}" rel="stylesheet">
+        {% endblock %}
+
+
+
+    </head>
+    <body>
+    <header >
+        <a href="{{ path('default') }}"> <h1>My Shop <img style="width: 40px" src="{{ asset('images/online-shopping.png') }}"></h1></a>
+
+    </header>
+    <div id="content" class="menu">
+
+        <nav  class="">
+            <ul>
+                <li id="titre"><a href="{{ path('default') }}" class="titre">My Shop</a></li>
+                <li><a href="{{ path('Femme') }}">Femme</a>
+                    <ul>
+                        <li><a  href="{{ path('femme',{'genre':2,'categorie':1}) }}">top</a></li>
+                        <li><a  href="{{ path('femme',{'genre':2,'categorie':2}) }}">pantalons</a></li>
+                        <li><a  href="{{ path('femme',{'genre':2,'categorie':3}) }}">chaussures</a></li>
+                        <li><a  href="{{ path('femme',{'genre':2,'categorie':4}) }}">vestes et manteaux</a></li>
+                        <li><a  href="{{ path('femme',{'genre':2,'categorie':5}) }}">accessoires</a></li>
+                        <li><a  href="{{ path('femme',{'genre':2,'categorie':6}) }}">jupes</a></li>
+                        <li><a  href="{{ path('femme',{'genre':2,'categorie':7}) }}">robes</a></li>
+                        <li><a  href="{{ path('femme',{'genre':2,'categorie':8}) }}">bijoux</a></li>
+                        <li><a  href="{{ path('femme',{'genre':2,'categorie':9}) }}">sous vetements</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ path('Homme') }}">Homme</a>
+                    <ul>
+                        <li><a  href="{{ path('homme',{'genre':1,'categorie':1}) }}">top</a></li>
+                        <li><a   href="{{ path('homme',{'genre':1,'categorie':2}) }}">pantalons</a></li>
+                        <li><a   href="{{ path('homme',{'genre':1,'categorie':3}) }}">chaussures</a></li>
+                        <li><a   href="{{ path('homme',{'genre':1,'categorie':4}) }}">vestes et manteaux</a></li>
+                        <li><a   href="{{ path('homme',{'genre':1,'categorie':5}) }}">accessoires</a></li>
+                        <li><a   href="{{ path('homme',{'genre':1,'categorie':9}) }}">sous vetements</a></li>
+                    </ul>
+                </li>
+
+
+
+                <li id="ongletGarçon">    <a href="{{ path('Garçon') }}">Garçon</a>
+                    <ul>
+                        <li>
+                            <ul>
+                                <li ><a  href="{{ path('garçon',{'genre':3,'categorie':1}) }}">top</a></li>
+                                <li ><a  href="{{ path('garçon',{'genre':3,'categorie':2}) }}">pantalons</a></li>
+                                <li ><a  href="{{ path('garçon',{'genre':3,'categorie':3}) }}">chaussures</a></li>
+                                <li ><a  href="{{ path('garçon',{'genre':3,'categorie':4}) }}">vestes et manteaux</a></li>
+                                <li ><a  href="{{ path('garçon',{'genre':3,'categorie':5}) }}">accessoires</a></li>
+                                <li ><a  href="{{ path('garçon',{'genre':3,'categorie':9}) }}">sous vetements</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </li>
+                <li id="ongletFille">    <a href="{{ path('Fille') }}">Fille</a>
+                    <ul>
+                        <li>
+                            <ul>
+                                <li ><a  href="{{ path('fille',{'genre':4,'categorie':1}) }}">top</a></li>
+                                <li ><a  href="{{ path('fille',{'genre':4,'categorie':2}) }}">pantalons</a></li>
+                                <li ><a  href="{{ path('fille',{'genre':4,'categorie':3}) }}">chaussures</a></li>
+                                <li ><a  href="{{ path('fille',{'genre':4,'categorie':4}) }}">vetes et manteaux</a></li>
+                                <li ><a  href="{{ path('fille',{'genre':4,'categorie':5}) }}">accessoires</a></li>
+                                <li ><a  href="{{ path('fille',{'genre':4,'categorie':6}) }}">jupes</a></li>
+                                <li ><a  href="{{ path('fille',{'genre':4,'categorie':7}) }}">robes</a></li>
+                                <li ><a  href="{{ path('fille',{'genre':4,'categorie':9}) }}">sous vetements</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </li>
+
+            </ul>
+        </nav>
+
+        <nav>
+            <ul>
+                <li id="li2"> <a href="{{ path('panier') }}" style="color: gray"><span class="icon-cart"></span></a></li>
+                <li id="li2"><a href="{{ path('wish_list') }}" style="color: gray"><span class="icon-heart"></span></a></li>
+                <li id="li2"><a href=# style="color: gray"><span class="icon-user"></span></a>
+                    <ul>
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <li><a  href="{{ path('app_logout') }}">se déconnecter</a></li>
+
+                            <li><a  href="{{ path('monCompte' )}}">mon compte</a></li>
+
+                            {% else %}
+                                <li><a  href="{{ path('app_login') }}">connexion</a></li>
+                                <li><a  href="{{ path('inscription') }}">s'inscrire</a></li>
+
+                        {% endif %}
+                    </ul>
+                </li>
+            </ul>
+
+        </nav>
+
+
+
+    </div>
+    <div class="overlay"></div>
+
+    <div class="burger">
+        <span></span>
+    </div>
+
+
+        {% block body %}
+
+
+        {% endblock %}
+
+    <footer>
+        <section class="icones1">
+            <p class="footer">
+                Nos Apps
+            </p>
+
+            <p>
+                <span class="icon-appleinc"></span>
+                <span class="icon-android"></span>
+            </p>
+
+        </section>
+        <section>
+            <p>	<a style="color: white" href="{{ path('admin') }}" >  Admin</a></p>
+            <p>El khoukhi Lamia</p>
+
+        </section>
+        <section class="icones2">
+            <p class="footer">
+                Rejoignez-nous sur :
+            </p>
+            <p>
+                <span class="icon-twitter"></span>
+                <span class="icon-youtube2"></span>
+                <span class="icon-facebook2"></span>
+                <span class="icon-instagram"></span>
+            </p>
+        </section>
+    </footer>
+        {% block javascripts %}{% endblock %}
+    <script src="{{asset('js/comportements.js')}}"></script>
+    </body>
+</html>

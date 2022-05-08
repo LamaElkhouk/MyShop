@@ -1,0 +1,344 @@
+/************************body et html*****************************************/
+html,body{
+	margin: 0;
+	padding: 0;
+
+	font-family: 'Roboto',sans-serif;
+}
+html
+{
+	height:100%
+}
+body{
+	position: relative;
+	z-index: 1;
+	min-height:100%;
+	margin: 0;
+	padding: 0;
+	background-color: #FCF8F9;
+	padding-bottom:20em;
+}
+a{
+	text-decoration: none;
+
+}
+/******************************fin******************************************/
+
+/***************************** debut entete de la page *******************/
+/*****titre principal********/
+h1{
+	text-align: center;
+	font-family: 'Indie Flower', cursive;
+	text-shadow: 2px 2px #A19FA4;
+	color:white;
+	margin:0;
+	padding: 10px;
+	background-color: antiquewhite;
+	font-size: 50px;
+
+}
+h2{
+	text-align: center;
+	margin-top: 17%;
+	font-size: 27px;
+	color:#d95757;
+}
+#titre{
+	display: none;
+	font-size: 30px;
+}
+.titre{
+	margin-top: 5%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+/********************************menu**************************/
+
+nav{
+	font-size: 15px;
+}
+nav ul #li2{
+
+	font-size: 20px;
+	margin: 0px;
+	padding: 0px;
+	float:right;
+	text-align: center;
+	height: 50px;
+	width: 80px;
+	box-shadow: none;
+
+
+}
+nav ul #li2 a:hover{
+	background-color: #FCF8F9;
+	color :palevioletred;
+}
+nav ul li{
+	background-color: #FCF8F9;
+	position: relative;
+	z-index: 1;
+	font-weight:650;
+	font-size: 20px;
+	box-shadow: 0 1px 7px rgba(0,0,0,.4);
+	margin: 0px;
+	padding: 0px;
+	float:left;
+	text-align: center;
+	height: 50px;
+	width: 160px;
+	line-height: 50px;
+}
+
+nav ul li a{
+	display: block;
+	color:#A19FA4;
+}
+nav ul li ul li{
+	display: none;
+}
+
+
+
+nav ul li:hover ul li{
+	position: relative;
+	z-index: 1;
+	display: block;
+	height: 50px;
+	width: 240px;
+}
+nav ul li:hover ul li{
+	position: relative;
+	z-index: 1;
+	display: block;
+	height: 50px;
+	width: 200px;
+}
+
+
+nav li a:hover{
+	background-color:#DCDCDE;
+	color: white;
+}
+
+nav ul{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#overlay{
+	position: fixed;
+	display:none;
+	z-index: 10;
+	background-color: rgba(0,0,0, 0.4);
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+}
+
+
+/****************fin du menu***********/
+
+
+
+
+/*****************************fin entete de la pager*******************/
+/*****************************debut main*******************************/
+main{
+	margin-top: 0;
+}
+h3{
+	text-align: center;
+	color: #CD5C5C;
+}
+
+.messageVide{
+	color:gray;
+	margin-left:40%;
+	margin-top:10%;
+	font-size: 20px
+}
+/**page enfant**/
+.enfant{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.enfant img{
+	margin-top: 30%;
+
+
+
+}
+
+
+
+
+/***fin page enfant**/
+.sectionCompte{
+
+	margin-left: 30%;
+	margin-top: 5%;
+	color:dimgrey;
+	font-size: 22px;
+}
+
+.article{
+	height: 300px;
+	width: 300px ;
+	margin-bottom: 2%;
+	margin-top: 14%
+}
+
+/**icone**/
+.icon-heart:hover{
+	color:#d95757 ;
+}
+.icon-user:hover{
+	color:#a4c1ca;
+}
+.icon-cart:hover{
+	color:#7cea92;
+}
+/***formulaire**/
+.formulaire{
+	margin-left: 15%;
+	margin-right: 20%;
+	margin-top: 5%;
+	color:dimgrey;
+	font-size: 22px;
+}
+.form-group{
+	margin: 4%;
+}
+.form-group li{
+	color: red;
+	list-style-type: none;
+	font-size: 15px;
+}
+
+
+.formcontrol{
+	width: 100%;
+
+}
+.form-control2{
+	margin-left:5%;
+
+}
+
+/*************************************galerie*************************************/
+#photo{
+	height: 500px;
+	width: 1150px;
+}
+#galerie_mini li a img{
+	height: 200px;
+	width: 330px;
+}
+#galerie_mini  {
+	display: flex;
+	flex-direction: row;
+	margin: 1.5%;
+}
+#galerie_mini  li{
+	margin: 1%;
+	list-style-type: none ;
+}
+#galerie{
+	margin-top: 15%;
+}
+/****************************fin galerie*********************************/
+
+
+.contenair{
+
+	margin: 5%;
+	padding: 2%;
+}
+#image{
+	height: 50px;
+	width: 50px;
+}
+
+
+
+.imgArticle{
+	position:relative;
+}
+.texte{
+	position: absolute;
+	transform: translate(150%, -300%);
+	font-size: 70px;
+	color:gray;
+	opacity: 0;
+}
+.article:hover .imgArticle {
+	opacity: 0.3;
+}
+
+.article:hover .texte {
+	opacity: 1;
+}
+
+/**/
+.Invisible{
+	display: none;
+}
+.Visible{
+	display: inherit;
+}
+/**tableau mise en page  css : https://openweb.eu.org/articles/tableaux_css **/
+table {
+	border: medium solid #d95757;
+	border-collapse: collapse;
+	width: 60%;
+	color:#d95757;
+	margin-left: 20%;
+	margin-top: 10%;
+}
+th {
+	font-family: monospace;
+	border: thin solid #d95757;
+	width: 60%;
+	padding: 5px;
+	background-color: #fea0a0;
+}
+td {
+	font-family: sans-serif;
+	border: thin solid #d95757;
+	width: 60%;
+	padding: 5px;
+	text-align: center;
+	color:#5b5858;
+	background-color: #ffffff;
+}
+caption {
+	font-family: sans-serif;
+}
+
+
+/***************************fin du main*********************************/
+
+
+/***************************footer*************************************/
+footer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between ;
+	font-size:1.3rem;
+	color: aliceblue;
+	margin-bottom: 0;
+	position: absolute; bottom: 0; left: 0; right: 0;
+	background-color:#9D9C9E;
+	padding: 2rem;
+	margin-top: 5rem;
+}
+
+/**************************fin du footer*********************************/
+

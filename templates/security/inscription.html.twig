@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Shop{% endblock %}
+
+{% block body %}
+
+<body style="background-color: #FCF8F9;">
+    <main style="margin-left:5%;margin-right: 5%;background-color: #FCF8F9;" >
+        <h2  style="text-align: center">Inscription</h2>
+
+
+<div class="formulaire">
+
+
+
+        {{ form_start(form) }}
+
+
+            <div class="form-group">
+                <label class="label"  for="">Nom Complet</label>
+                {{ form_widget(form.nomComplet) }}
+            </div>
+            <div class="form-group">
+                <label class="label" for="">Username</label>
+                {{ form_widget(form.username) }}
+
+            </div>
+
+
+            <div class="form-group" style="display: flex; flex-direction: row">
+                <label class="label"  for="">Date de naissance</label>
+                {{ form_widget(form.dateNaissance) }}
+            </div>
+            <div class="form-group" class="my-c">
+                <label class="label"  for=""> Email</label>
+                {{ form_widget(form.email) }}
+                {{ form_errors(form) }}
+            </div>
+            <div class="form-group">
+                <label class="label"  for="">Mot de passe</label>
+                {{ form_widget(form.password) }}
+                {{ form_errors(form.password) }}
+            </div>
+            <div class="form-group">
+                <label class="label"  for=""> Confirmez le mot de passe</label>
+                {{ form_widget(form.confirmePassword) }}
+                {{ form_errors(form.confirmePassword) }}
+            </div>
+
+            <div class="form-group">
+                <label class="label"  for=""> Numero de telephone</label>
+                <div>{{ form_widget(form.numeroTelephone) }}</div>
+            </div>
+
+
+                <button type="submit" style="margin-top: 3%; margin-left: 85%">s'inscrire</button>
+                {{ form_end(form) }}
+</div>
+
+
+
+
+
+
+
+
+
+    </main>
+</body>
+{% endblock %}

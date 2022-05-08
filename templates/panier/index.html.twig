@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Shop{% endblock %}
+
+{% block body %}
+
+<body style="background-color: #FCF8F9;">
+    <main style="margin-left:5%;margin-right: 5%;" >
+        <h2  style="text-align: center">Mon panier</h2>
+
+       {% if listeArticles|length >0 %}
+           <table>
+               <thead>
+               <tr>
+                   <th>Articles</th>
+                   <th>Prix</th>
+                   <th>Quantité</th>
+                   <th>Total</th>
+                   <th></th>
+               </tr>
+               </thead>
+               <tbody>
+               {% for element in listeArticles%}
+                   <tr>
+                       <td>{{ element.article.nom }} </td>
+                       <td>{{ element.article.prix }} €</td>
+                       <td>{{ element.quantite}}</td>
+                       <td>{{ element.article.prix * element.quantite}}€</td>
+                       <td><a style="color: #555555" href="{{ path('panierRemove',{'id':element.article.id}) }}"><span class="icon-bin"></span></a></td>
+                   </tr>
+               {% endfor %}
+
+               </tbody>
+               <tfoot>
+               <tr>
+                   <td colspan="3"style="text-align: right" >Total</td>
+                   <td colspan="2">{{ total}} €</td>
+
+               </tr>
+               </tfoot>
+           </table>
+
+        {% else %}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <figure style="margin-top: 5%">
+                    <img style="height: 200px; margin-left: 40%" src="{{ asset('images/panier.png') }}" alt="Elephant at sunset">
+                    <figcaption style="">
+                        <p style="color:gray;margin-left:40%;margin-top:3%;font-size: 20px">
+                            désoler le panier est vide ...
+                        </p>
+                    </figcaption>
+                </figure>
+            {% else %}
+
+        <figure style="margin-top: 5%">
+            <img style="height: 200px; margin-left: 40%" src="{{ asset('images/panier.png') }}" alt="Elephant at sunset">
+            <figcaption style="">
+                <p style="color:gray;margin-left:40%;margin-top:3%;font-size: 20px">
+                    désoler le panier est vide ...
+                </p>
+                <p class="messageVide2" style="margin-left: 35%;margin-top: 3%; font-size: 15px;color:dimgrey">
+                    Veuillez <a href="{{ path('app_login') }}" style="color:#d95757">vous connecter</a> pour consulter votre panier
+                </p>
+            </figcaption>
+        </figure>
+
+
+
+
+            {% endif %}
+        {% endif %}
+
+
+
+
+    </main>
+</body>
+{% endblock %}
